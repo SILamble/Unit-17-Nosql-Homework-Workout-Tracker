@@ -20,11 +20,23 @@ router.post("/api/workouts", (req, res) => {
 //see MVP step 2, add to a previous workout plan
 
 router.put("/api/workouts/:id", ({body, params}, res) =>{
-    Workout.findWorkoutbyID(
+    Workout.findByIdAndUpdate(
         params.id,
         {$push: {exercises: body}}
     ).then(dbWorkout =>{
         res.json(dbWorkout);
+    })
+    .catch(err=>{
+        res.json(err)
+    })
+})
+
+//Read(get) route, get ALL workouts
+
+router.get("/api/workouts", (req, res)=>{
+    Workout.find()
+    .then(dbWorkouts =>{
+        res.json(dbWorkouts)
     })
     .catch(err=>{
         res.json(err)
