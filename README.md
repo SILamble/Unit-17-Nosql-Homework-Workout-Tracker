@@ -20,10 +20,22 @@ User should be able to:
 * 2) Add/update exercises on a previous plan
 * 3) View the combined weight of multiple exercises on a stats page
 
+## Process
+
+Using provided front end template, and database seeds add the following:
+
+1. Models folder, containing Workout model schema. Based on seed instances already provided.
+2. Routes folder
+* Views route for HTML pages
+* API routes, for CRUD routes. To create new, update and view workouts.
+3. Server.js with express routes and middleware
+4. Gitignore file, prevent installed node mode uploads
+
 ### Requirements
 
 NPM - Express
 NPM - Mongoose
+Middleware - Morgan
 Database - MongoDb
 
 ### Screenshots
