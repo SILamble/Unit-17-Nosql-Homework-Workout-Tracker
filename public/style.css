@@ -368,9 +368,9 @@ form > button {
   margin-bottom: 5px;
 }
 
-/* .workout .card {
-  width: 350px;
-} */
+#stats {
+  text-align: right;
+}
 
 .prev-workout button {
   margin: 10px;
