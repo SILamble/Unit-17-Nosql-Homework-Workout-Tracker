@@ -17,7 +17,7 @@ router.post("/api/workouts", (req, res) => {
 });
 
 //Update(put) route, to to update a previously created workout instance, using schema
-//see MVP step 2, add to a previous workout plan
+//see MVP step 2, adding to a previous workout plan
 
 router.put("/api/workouts/:id", ({body, params}, res) =>{
     Workout.findByIdAndUpdate(
@@ -35,6 +35,19 @@ router.put("/api/workouts/:id", ({body, params}, res) =>{
 
 router.get("/api/workouts", (req, res)=>{
     Workout.find()
+    .then(dbWorkouts =>{
+        res.json(dbWorkouts)
+    })
+    .catch(err=>{
+        res.json(err)
+    })
+})
+
+//Read(get) route for stats range, .limit limits the returned results to first 7 items. Each result counts for a single day.
+// Therefore all results received count for the last week of exercises.
+
+router.get("/api/workouts/range", (req, res)=>{
+    Workout.find().limit(7)
     .then(dbWorkouts =>{
         res.json(dbWorkouts)
     })
